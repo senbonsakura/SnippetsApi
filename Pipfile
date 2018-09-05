@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+pygments = "*"
+coreapi = "*"
+drf-yasg = "*"
+djangorestframework_simplejwt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
