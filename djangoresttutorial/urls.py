@@ -27,6 +27,9 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from djangoresttutorial import settings
+from rest_framework import views, serializers, status
+from rest_framework.response import Response
+
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -41,6 +44,17 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 
+
+class MessageSerializer(serializers.Serializer):
+    message = serializers.CharField()
+class EchoView(views.APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = MessageSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED)
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('snippets.urls')),
@@ -51,6 +65,8 @@ urlpatterns = [
             'rest_framework.urls', namespace='rest_framework')),
     url(r'^api/auth/token/obtain/$', TokenObtainPairView.as_view()),
     url(r'^api/auth/token/refresh/$', TokenRefreshView.as_view()),
+    url(r'^api/echo/$', EchoView.as_view())
+
 ]
 
 urlpatterns += [

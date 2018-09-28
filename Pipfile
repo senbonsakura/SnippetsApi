@@ -10,6 +10,10 @@ pygments = "*"
 coreapi = "*"
 drf-yasg = "*"
 djangorestframework_simplejwt = "*"
+whitenoise = "*"
+gunicorn = "*"
+python-decouple = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
