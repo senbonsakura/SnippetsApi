@@ -14,7 +14,6 @@ whitenoise = "*"
 gunicorn = "*"
 python-decouple = "*"
 dj-database-url = "*"
-psycopg2 = "*"
 
 [dev-packages]
 
