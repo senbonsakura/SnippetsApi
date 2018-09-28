@@ -15,6 +15,7 @@ gunicorn = "*"
 python-decouple = "*"
 dj-database-url = "*"
 "psycopg2-binary" = "*"
+django-rest-swagger = "*"
 
 [dev-packages]
 
